@@ -1,0 +1,45 @@
+name: Test, Lint, Build and Deploy on Github Pages
+
+on:
+  push:
+    branches: ["master", "main"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [23.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests and linter
+        run: npm run lint && npm test
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.2.1
+        with:
+          branch: gh-pages
+          folder: dist
+
+      - name: Fail on failed tests
+        run: |
+          if [ ${{ job.status }} == 'failure' ]; then exit 1; fi;

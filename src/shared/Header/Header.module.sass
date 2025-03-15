@@ -1,0 +1,30 @@
+@use "./../../app/theming/mixins"
+
+.root
+    position: sticky
+    top: 0
+    left: 0
+    right: 0
+    background: linear-gradient(45deg, rgb(69, 104, 220) -11.32%, rgb(176, 106, 179) 109.99%)
+    padding: 12px 32px
+    z-index: 9999
+    display: flex
+    align-items: center
+    justify-content: space-between
+    border-radius: 12px
+
+.root div
+    display: flex
+    align-items: center
+    justify-content: space-around
+    gap: 18px
+
+.menu
+    display: flex
+    align-items: center
+
+    .link
+        color: white
+
+    .active
+        color: #ec5f57

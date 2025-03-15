@@ -1,0 +1,11 @@
+@use "./../../app/theming/mixins"
+
+body
+    +mixins.theme(background-color, mainBg)
+
+.root
+    margin: 0 auto
+    max-width: 1200px
+    padding-top: 8px
+    +mixins.theme(background-color, mainBg)
+

@@ -1,0 +1,14 @@
+@use "./../../app/theming/mixins"
+
+.root
+  width: 100%
+  padding: 12px 8px
+  border-radius: 8px
+  +mixins.theme(color, text)
+  +mixins.theme(background-color, bg)
+  +mixins.theme(border, border)
+  +mixins.theme(border-color, borderColor)
+
+  &:hover
+    cursor: pointer
+    +mixins.theme(border-color, borderColor2)

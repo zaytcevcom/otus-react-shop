@@ -1,0 +1,34 @@
+@use "./../../app/theming/mixins"
+
+.root
+  width: 300px
+  padding: 20px
+
+  h2
+    margin-bottom: 8px
+
+  p
+    margin: 4px 0 0 0
+    padding-left: 6px
+    font-size: 14px
+    +mixins.theme(color, mainRed)
+
+  input, textarea
+    width: 100%
+    padding: 6px 8px
+    border-radius: 4px
+    margin-top: 8px
+
+  input
+    +mixins.theme(border, border)
+    +mixins.theme(border-color, borderColor2)
+    +mixins.theme(color, text)
+
+  textarea
+    +mixins.theme(border, border)
+    +mixins.theme(border-color, borderColor2)
+    +mixins.theme(color, text)
+
+  .error
+    padding: 8px 0
+    +mixins.theme(color, mainRed)
