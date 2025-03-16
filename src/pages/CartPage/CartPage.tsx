@@ -36,8 +36,6 @@ export const CartPage: FC = () => {
       }
       alert(message);
     }
-
-    console.log(cartItems);
   };
 
   return (

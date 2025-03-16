@@ -1,5 +1,4 @@
 import { FC, useCallback, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { ProductList } from '../../widgets/ProductList';
 import { LoadMoreButton } from '../../shared/LoadMoreButton';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,10 +19,6 @@ export const ProductsPage: FC = () => {
     fetchData();
   };
 
-  const { ref } = useInView({
-    onChange: () => handleLoadMore(),
-  });
-
   const fetchData = useCallback(() => {
     setIsLoading(true);
 
@@ -37,9 +32,7 @@ export const ProductsPage: FC = () => {
   return (
     <>
       <ProductList products={products} />
-      <div ref={ref}>
-        <LoadMoreButton label={'Load more'} onClick={handleLoadMore} />
-      </div>
+      <LoadMoreButton onChange={handleLoadMore} />
     </>
   );
 };

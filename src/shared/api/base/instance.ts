@@ -10,7 +10,7 @@ const getAuthorizationHeader = () => {
 };
 
 export const instance = axios.create({
-  baseURL: 'http://19429ba06ff2.vps.myjino.ru/api',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     Authorization: getAuthorizationHeader(),
   },
