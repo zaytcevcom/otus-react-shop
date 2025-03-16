@@ -43,7 +43,7 @@ export const ProductForm: FC = () => {
         const product = await ProductsApi.getById(productId);
         setTitle('Редактирование «' + product.name + '»');
         setValue('name', product.name);
-        setValue('photo', product.photo);
+        setValue('photo', product.photo || '');
         setValue('description', product.desc || '');
         setValue('price', product.price.toString());
       };
